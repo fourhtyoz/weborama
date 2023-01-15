@@ -15,9 +15,9 @@ epub.EpubReader.DEFAULT_OPTIONS = {'ignore_ncx': True}
 def epub_parser(filename, namespace='DC', fields=['title', 'creator', 'publisher', 'date']):
     """
     Получает файл для обработки. В обязательные поля прописаны
-    дефолтные значения: DC (по документации модуля) и мета-данные,
+    дефолтные значения: DC (по документации модуля) и метаданные,
     значения которых мы ищем.
-    Функция возвращает список значений мета-данных из fields.
+    Функция возвращает список значений метаданных из fields.
     """
     book = epub.read_epub(filename)
     result = []
@@ -37,8 +37,8 @@ from bs4 import BeautifulSoup as bs
 def fb2_parser(filename, fields=['book-title', 'first-name', 'last-name', 'publisher', 'year']):
     """
     Получает файл для обработки. 
-    В обязательное поля прописаны мета-данные, которые мы ищем.
-    Функция возвращает список значений мета-данных из fields.
+    В обязательное поля прописаны метаданные, которые мы ищем.
+    Функция возвращает список значений метаданных из fields.
     """
     with open(filename, 'r') as f:
         content = f.readlines()
