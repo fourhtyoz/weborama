@@ -1,13 +1,16 @@
-# Uses a CSV file in ., parses it and returns a dict id: [cache]
 def build_dict_from_csv(file='table.csv'):
-    # Parse CSV
+    """
+    Функция обратаывает CSV и создает словарь {id: [cache]}.
+    Возвращает словарь
+    """
+    # Обрабатывает CSV
     with open(file, 'r') as f:
         l = []
-        next(f)
+        next(f) # Пропускаем headers
         for line in f.readlines():
             l.append(line.strip().split(','))
     
-    # Create a dict
+    # Создает словарь {id: [cache]}
     d = {}
     for [cache, id] in l:
         if id not in d:
@@ -17,16 +20,22 @@ def build_dict_from_csv(file='table.csv'):
             d[id].append(cache)
     return d
 
-# Finds IDs that occurred 3 times
-def find_id_times(d, times=3):
+def find_id_n_times(d, times=3):
+    """
+    Получает словарь, находит ID, которые встретились заданное кол-во раз. 
+    Возвращает лист.
+    """
     res = []
     for key in d:
         if len(d[key]) == 3:
             res.append(key)
     return res
 
-# Counts all ID occurences 
 def count_occurences(d):
+    """
+    Получает словарь, подсчитывает частоту повторений
+    Возвращает лист
+    """
     res = {}
     for key in d:
         a = len(d[key])
@@ -35,3 +44,10 @@ def count_occurences(d):
         else:
             res[a] += 1
     return res
+
+# Ответы
+# Вывести те id, которые встречаются в файле только 3 раза
+print(find_id_n_times(build_dict_from_csv()))
+
+# Вывести частоту повторений
+print(count_occurences(build_dict_from_csv()))
