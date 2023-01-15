@@ -27,7 +27,7 @@ def find_id_n_times(d, times=3):
     """
     res = []
     for key in d:
-        if len(d[key]) == 3:
+        if len(d[key]) == times:
             res.append(key)
     return res
 
