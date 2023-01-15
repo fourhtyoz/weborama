@@ -1,7 +1,7 @@
 def build_dict_from_csv(file='table.csv'):
     """
     Функция обратаывает CSV и создает словарь {id: [cache]}.
-    Возвращает словарь
+    Возвращает словарь.
     """
     # Обрабатывает CSV
     with open(file, 'r') as f:
@@ -34,7 +34,7 @@ def find_id_n_times(d, times=3):
 def count_occurences(d):
     """
     Получает словарь, подсчитывает частоту повторений
-    Возвращает лист
+    Возвращает лист.
     """
     res = {}
     for key in d:
