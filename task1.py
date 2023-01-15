@@ -1,6 +1,6 @@
 def build_dict_from_csv(file='table.csv'):
     """
-    Обратаывает CSV и создает словарь {id: [cache]}.
+    Обратаывает CSV и возвращает словарь {id: [cache]}.
     
     file    файл для обработки (колонки id-cache)
     """
